@@ -1,0 +1,18 @@
+nacos:
+  address: 172.30.73.203:8848
+
+dubbo:
+  scan:
+    base-packages: com.example.dubbo.proto
+  application:
+    name: DubboApplication
+    metadata-type: remote
+    parameters:
+      machine-room: mac
+  protocol:
+    name: tri
+    port: 50051
+    serialization: protobuf
+  config-center:
+    protocol: nacos
+    address: nacos://${nacos.address}
